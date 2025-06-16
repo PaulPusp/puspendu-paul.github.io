@@ -31,13 +31,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      # If you have a build step, add it here. For example:
+      # - name: Build site
+      #   run: npm install && npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: '.'
+          # Upload the directory containing your static files.
+          # Change this to your build output directory if needed.
+          path: '.' # Or a specific folder like './dist' or './_site'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
